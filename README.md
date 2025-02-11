@@ -12,7 +12,7 @@ This is an open-source application designed to help users estimate the optimal s
 
 ## What is this App?
 
-This application aims to simplify the process of planning a solar panel installation.  It's designed to be user-friendly and provide valuable insights into:
+This application aims to simplify the process of Solar Panel and Battery Sizing awith ROI .  It's designed to be user-friendly and provide valuable insights into:
 
 * **PV System Sizing:**  Estimate the ideal size of a solar panel system based on factors like energy consumption, location, roof space, and desired energy offset.
 * **Return on Investment (ROI) Calculation:**  Project the financial benefits of a solar investment, considering factors like installation costs, energy savings, government incentives, and electricity prices.
@@ -21,13 +21,10 @@ This application aims to simplify the process of planning a solar panel installa
 **Key Features (Current & Planned):**
 
 * **Input Parameters:**
-    * Location-based weather data (solar irradiance)
     * Energy consumption data (monthly/annual)
-    * Roof area and orientation
     * Solar panel specifications (efficiency, cost)
     * Electricity tariffs and feed-in tariffs
-    * Installation costs and financing options
-    * Government incentives and rebates
+    * Costing
 * **Output Metrics:**
     * Recommended PV system size (kW)
     * Estimated annual energy production (kWh)
@@ -35,10 +32,10 @@ This application aims to simplify the process of planning a solar panel installa
     * Annual electricity savings
     * Payback period
     * Return on Investment (ROI)
-    * Visualizations (charts and graphs - *planned*)
+    
 * **User-Friendly Interface:**
     * Intuitive input forms
-    * Clear and understandable output results
+    * Technical output results
     * *Web-based interface (planned)*
     * *Mobile responsiveness (planned)*
 
@@ -53,43 +50,7 @@ We believe that open-source development fosters innovation, transparency, and cr
 
 ## Get Started
 
-**[Link to the live application (if deployed)]** -  *If the app is deployed online, add the link here.*
-
-**Running Locally (for Developers & Contributors):**
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME.git
-   cd YOUR_REPOSITORY_NAME
-   ```
-
-2. **Install dependencies:**
-   *(Specify the programming language and package manager used, e.g.,)*
-
-   * **For Python:**
-     ```bash
-     pip install -r requirements.txt
-     ```
-
-   * **For Node.js:**
-     ```bash
-     npm install
-     ```
-
-3. **Run the application:**
-   *(Specify the command to run the app, e.g.,)*
-
-   * **For Python (Flask app):**
-     ```bash
-     python app.py
-     ```
-
-   * **For Node.js (Express app):**
-     ```bash
-     npm start
-     ```
-
-4. **Access the application:** Open your web browser and navigate to `http://localhost:YOUR_PORT` (*Replace `YOUR_PORT` with the port specified in your application, often 5000 for Flask or 3000 for Node.js*).
+1. **Access the application:** Install the APK file into your Android device*).
 
 ## Contributing
 
