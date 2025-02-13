@@ -38,4 +38,4 @@ We believe that open-source development fosters innovation, transparency, and cr
 
 ## Acknowledgements
 
-I would like to thank all who help make this project a success!  Your efforts are greatly appreciated.
+I would like to thank all who help make this project a success!  Every efforts are greatly appreciated.
