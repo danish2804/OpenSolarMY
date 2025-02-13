@@ -1,7 +1,7 @@
 ```markdown
 # PV Sizing & ROI Calculator - Open Source Community Project
 
-[![Contributions Welcome] (CONTRIBUTING.md)
+[![Contributors are Welcomed] (CONTRIBUTING.md)
 
 **Welcome to the PV Sizing & ROI Calculator project!** 👋
 
