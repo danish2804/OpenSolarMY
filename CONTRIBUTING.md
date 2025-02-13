@@ -32,7 +32,7 @@ This guide explains how to build and deploy the PV Sizing & ROI Calculator app u
 
 **5. Installing the APK:**
 
-* **Download the APK:** Download the generated APK file to your Android device.  It will be located inside the 'android' folder with the fil name `your_app_name.apk`.
+* **Download the APK:** Download the generated APK file to your Android device.  It will be located inside the 'android' folder with the file name `your_app_name.apk`.
 * **Enable installation from unknown sources:** You may need to enable this option in your Android device's settings to install APKs from sources other than the Google Play Store.  (Be cautious when enabling this and only install APKs from trusted sources).
 * **Install the APK:** Locate the downloaded APK file on your device and install it.
 
