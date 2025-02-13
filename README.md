@@ -1,7 +1,7 @@
 ```markdown
 # PV Sizing & ROI Calculator - Open Source Community Project
 
-[![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![Contributions Welcome] (CONTRIBUTING.md)
 
 **Welcome to the PV Sizing & ROI Calculator project!** 👋
 
