@@ -51,13 +51,13 @@ We believe that open-source development fosters innovation, transparency, and cr
     4. **Test your changes** thoroughly.
     5. **Submit a pull request** to the `main` branch with a detailed description of your changes.
 
-   * **Please review  [CONTRIBUTING.md](CONTRIBUTING.md) file for more detailed guidelines on coding style, testing, and pull request process.** *(Create this file and add more specific contribution instructions).*
+   * **Please review  [CONTRIBUTING.md](CONTRIBUTING.md) file for more detailed guidelines on coding style, testing, and pull request process.** 
 * **Design Improvements:**  If you have UX/UI design skills, we'd love your help in making the application more user-friendly and visually appealing.
 * **Spread the Word:**  Share this project with others who might find it useful or who might be interested in contributing!
 
 **We are particularly interested in contributions that focus on:**
 
-* **Improving accuracy and reliability of calculations.**
+* **Improving accuracy and reliability of calculations (Add Hybrid and Off-Grid).**
 * **Expanding data sources (e.g., weather APIs, panel databases).**
 * **Enhancing the user interface and user experience.**
 * **Internationalization and localization (supporting multiple languages and regions).**
