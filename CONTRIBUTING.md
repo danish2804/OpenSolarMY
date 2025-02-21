@@ -12,7 +12,7 @@ This guide explains how to build and deploy the PV Sizing & ROI Calculator app u
 
 **2. Exporting from CodePen:**
 
-* **CodePen have a direct "Export as ZIP" feature to export or the other way is by
+* **CodePen** have a direct "Export as ZIP" feature to export or the other way is by
 * **Manual Create files:**  Create three files: `index.html`, `style.css`, and `script.js`.
 * **Paste code:** Copy the code from your CodePen pen and paste it into the corresponding files you just created with format as "index.html", "script.js", "style.css".
 * **Create ZIP archive:** Compress these three files into a ZIP archive (e.g., `pv_calculator.zip`).
