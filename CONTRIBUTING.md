@@ -7,7 +7,7 @@ This guide explains how to build and deploy the PV Sizing & ROI Calculator app u
 * **Create a new CodePen:** Go to [codepen.io](codepen.io) and create a new pen.
 * **HTML (index.html):**  Develop the user interface (input forms, buttons, output display areas) in the HTML section.
 * **CSS (style.css):**  Style the interface using CSS in the CSS section.
-* **JavaScript (script.js):** Implement the PV sizing and ROI calculation logic in the JavaScript section. Define the formulas and calculations here.  You'll need to handle user input, perform the calculations, and display the results on the page. *[See notes below about JavaScript calculations]*
+* **JavaScript (script.js):** Implement the PV sizing and ROI calculation logic in the JavaScript section. Define the formulas and calculations here.  You'll need to handle user input, perform the calculations, and display the results on the page. 
 * **Test thoroughly:**  Ensure the calculations are accurate and the interface functions correctly within CodePen's environment.
 
 **2. Exporting from CodePen:**
