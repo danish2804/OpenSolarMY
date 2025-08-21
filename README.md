@@ -49,10 +49,6 @@ We believe that open-source development fosters innovation, transparency, and cr
 - **Code Contributions:** Want to contribute code? Great! Please follow these steps:
   1. **Fork the repository.**
   2. **Create a new branch** for your feature or bug fix:
-     ```sh
-     git checkout -b feature/your-feature-name
-     git checkout -b fix/bug-description
-     ```
   3. **Make your changes** and commit them with clear and concise commit messages.
   4. **Test your changes** thoroughly.
   5. **Submit a pull request** to the `main` branch with a detailed description of your changes.
