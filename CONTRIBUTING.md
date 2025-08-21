@@ -1,6 +1,40 @@
-# Getting Started & Contributing Guide: PV Sizing & ROI Calculator
+## Contributing
 
-This guide explains how to build, deploy, and contribute to the PV Sizing & ROI Calculator app. We'll use CodePen for development, Tiiny.host for hosting the web app, and WebintoApp to convert it into an Android APK.
+**We warmly welcome contributions of all kinds!** Whether you are a seasoned developer, a solar energy expert, a UX/UI designer, or simply someone passionate about renewable energy, your input is valuable.
+
+**Here's how you can contribute:**
+
+* **Report Bugs:** If you encounter any issues or unexpected behavior, please describe the problem in detail.
+* **Suggest New Features:**  Have an idea for a new feature or improvement? Discuss your suggestion.
+* **Code Contributions:**  Want to contribute code?  Please follow these steps:
+    1. **Fork the repository.**
+    2. **Create a new branch** for your feature or bug fix 
+    3. **Make your changes** and commit them with clear and concise commit messages.
+    4. **Test your changes** thoroughly.
+    5. **Submit a pull request** to the `main` branch with a detailed description of your changes.
+  
+* **Design Improvements:**  If you have UX/UI design skills, we'd love your help in making the application more user-friendly and visually appealing.
+* **Spread the Word:**  Share this project with others who might find it useful or who might be interested in contributing!
+
+**We are particularly interested in contributions that focus on:**
+* **Improving accuracy and reliability of calculations.**
+* **Expanding data sources (e.g., weather APIs, panel databases).**
+* **Enhancing the user interface and user experience.**
+* **Internationalization and localization (supporting multiple languages and regions).**
+
+## Roadmap & Future Enhancements
+We have a vision for continuously improving this application.  Some of the planned future enhancements include:
+* **Web-based Deployment:**  Making the application accessible online for wider usage.
+* **Interactive Visualizations:**  Adding charts and graphs to visualize results and make them more insightful.
+* **Advanced Scenario Modeling:**  Including more sophisticated factors like shading, panel orientation optimization, and battery storage integration.
+* **Integration with Data APIs:**  Connecting to external APIs for real-time weather data, panel specifications, and electricity tariffs.
+* **Mobile Responsiveness:**  Ensuring the application works well on different screen sizes, including Apple devices.
+* **User Accounts & Saved Projects:**  Allowing users to save their projects and track their solar planning progress.
+
+
+# How it was made: PV Sizing & ROI Calculator
+
+This guide explains how Ibuild, deploy, and contribute to the PV Sizing & ROI Calculator app. We'll use CodePen for development, firebase for hosting the web app, and WebintoApp to convert it into an Android APK.
 
 **We warmly welcome contributions of all kinds!** Whether you are a seasoned developer, a solar energy expert, a UX/UI designer, or simply someone passionate about renewable energy, your input is valuable.
 
@@ -12,134 +46,6 @@ This guide explains how to build, deploy, and contribute to the PV Sizing & ROI 
     * CodePen pens have three main sections: HTML, CSS, and JavaScript. We will use these to build our calculator.
 
 ### 1.1 HTML Structure (index.html)
-
-The HTML section (`index.html` in a standard project structure) defines the user interface of the calculator.
-
-* **Basic Document Setup:**
-    ```html
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>PV Sizing & ROI Calculator</title>
-        <!-- Dependencies will be included here -->
-    </head>
-    <body>
-        <!-- Navigation Bar -->
-        <nav class="bg-[#f7f7f7] shadow-lg"></nav>
-
-        <!-- Main Content/Calculator Section -->
-        <main class="container mx-auto px-4 py-8"></main>
-
-        <!-- JavaScript Files (Optional - can also be in the JS section of CodePen) -->
-        </body>
-    </html>
-    ```
-
-    **Explanation:**
-    - `<!DOCTYPE html>`: Declares the document type as HTML5.
-    - `<html lang="en">`: Sets the document language to English.
-    - `<meta>` tags: Configure character set and viewport for responsiveness.
-    - `<title>`: Sets the title that appears in the browser tab.
-    - `<nav>`:  Will contain the navigation bar.
-    - `<main>`:  Will hold the main content of the calculator.
-
-* **Include Dependencies:**
-    Add these `<script>` tags within the `<head>` section to include necessary libraries:
-    ```html
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/vue@3.5.13/dist/vue.global.js"></script>
-    ```
-    **Explanation:**
-    - **Tailwind CSS**:  A utility-first CSS framework for styling the UI quickly.
-    - **Vue.js 3**:  A progressive JavaScript framework to enhance interactivity (used here for mobile menu toggle, and can be used for more complex UI logic if needed).
-
-* **Navigation Bar (`<nav>`) Example:**
-    ```html
-    <nav class="bg-[#f7f7f7] shadow-lg">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <span class="font-bold text-xl">PV Calculator</span> <span class="ml-2 text-gray-500 text-sm">v1.0</span>
-                </div>
-                <div class="hidden md:flex items-center justify-center flex-1">
-                    <div class="flex space-x-8">
-                        <a href="#introduction" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">About</a>
-                        <a href="#contribute" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Contribute</a>
-                        <a href="#" class="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Guide</a>
-                    </div>
-                </div>
-                <div class="md:hidden flex items-center">
-                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path v-if="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                            <path v-if="mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
-    ```
-    **Explanation:**
-    - **Tailwind CSS Classes:**  Classes like `bg-[#f7f7f7]`, `shadow-lg`, `max-w-7xl`, `mx-auto`, `px-4`, `flex`, `justify-between`, `h-16` are Tailwind CSS utilities for styling and layout.
-    - **Responsive Design:** `hidden md:flex` and `md:hidden flex` control visibility based on screen size (medium and above vs. small screens).
-    - **Vue.js for Mobile Menu:** `@click="mobileMenuOpen = !mobileMenuOpen"` demonstrates basic Vue.js usage to toggle a mobile menu (you'll need to define `mobileMenuOpen` in your JavaScript/Vue instance).
-
-* **PV System Calculator Section (`<main>`):**
-    This is where you'll build the input forms and output areas. Here's an example structure:
-    ```html
-    <main class="container mx-auto px-4 py-8">
-        <section id="calculator-section">
-            <h2 class="text-2xl font-bold mb-4">PV System Calculator</h2>
-            <p class="font-bold mb-2">Solar Panel Characteristics</p>
-            <div class="mb-4 relative">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="Pmp">
-                    Planned Solar Panel Power (W):
-                    <span class="ml-1 cursor-help relative group">
-                        ❔
-                        <span class="hidden group-hover:block absolute z-10 p-2 text-sm w-64 bg-black text-white rounded shadow-lg left-1/2 transform -translate-x-1/2 top-6">
-                            Enter the power rating of your planned solar panel in watts (e.g., 300W).
-                        </span>
-                    </span>
-                </label>
-                <input type="number" id="Pmp" value="300" min="200" max="550" step="50"
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    placeholder="Enter power in watts">
-            </div>
-
-            <!-- ... (Similar input fields for other parameters like Pg, nm, PSH, etc.) ... -->
-
-            <div class="mb-4 relative">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="monthlyBill">
-                    Monthly Bill (RM):
-                    <span class="ml-1 cursor-help relative group">❔
-                        <span class="hidden group-hover:block absolute z-10 p-2 text-sm w-64 bg-black text-white rounded shadow-lg left-1/2 transform -translate-x-1/2 top-6">
-                            Enter your estimated average monthly electricity bill in Ringgit Malaysia (RM).
-                        </span>
-                    </span>
-                </label>
-                <input type="number" id="monthlyBill" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter monthly bill in RM">
-            </div>
-
-            <button type="button" class="w-full bg-[#3bae1f] text-white px-4 py-2 rounded-md hover:bg-[#2ea512] transition-colors duration-300 font-medium" onclick="calculatePVSystem()">Calculate System Cost</button>
-
-            <div id="result" class="mt-6 p-4 border rounded shadow-md">
-                <!-- Results will be displayed here -->
-            </div>
-        </section>
-    </main>
-    ```
-    **Explanation:**
-    - **`<section id="calculator-section">`**: Encapsulates the calculator elements. Using IDs helps in JavaScript to target this section.
-    - **Input Fields (`<input type="number">`):**
-        - `type="number"`:  Ensures only numeric input.
-        - `id`:  Unique identifier for each input field (e.g., `Pmp`, `monthlyBill`) used to access values in JavaScript.
-        - `value`, `min`, `max`, `step`:  Attributes to control input behavior and provide default values.
-        - **Tooltips:**  The `<span>` elements with class `cursor-help relative group` and the nested `<span> class="hidden group-hover:block ..."` create hoverable tooltips to guide users.
-    - **Calculate Button (`<button onclick="calculatePVSystem()">`):**  Triggers the `calculatePVSystem()` JavaScript function when clicked.
-    - **Output Area (`<div id="result">`):**  The calculated results will be inserted into this `div` using JavaScript.
 
 ### 1.2 CSS Styling (style.css - or CSS section in CodePen)
 
@@ -247,14 +153,6 @@ The formulas used for PV system sizing and ROI calculations in the `calculatePVS
           `;
     }
     ```
-    **Explanation of `calculatePVSystem()` function:**
-    1. **Input Retrieval:** Gets values from HTML input fields using `document.getElementById()` and converts them to numbers using `parseFloat()`.
-    2. **Input Validation:** Checks for invalid inputs (e.g., non-positive monthly bill, missing values).
-    3. **Tariff Rates:** Defines electricity tariff blocks based on the selected region (Peninsular Malaysia or Sabah). *You need to fill in the actual tariff rates as per your data source.*
-    4. **Monthly Bill Breakdown:** Calculates how the monthly bill is distributed across different tariff blocks to determine the effective electricity rate.
-    5. **PV System Calculations:** Performs the core PV sizing calculations based on input parameters and standard formulas (these formulas are based on typical PV performance estimations).
-    6. **Savings and Cost Calculations:** Calculates the monthly savings from PV, total system cost, and the payback period.
-    7. **Output Results:** Formats the calculated results as HTML and inserts them into the `<div id="result">` area to display them on the page.
 
 * **`calculateBatterySizing()` Function (Optional - if Battery Sizing is included):**
     If your calculator also includes battery sizing functionality, you will need a JavaScript function to handle these calculations. Here's an example `calculateBatterySizing()` function:
@@ -287,22 +185,7 @@ The formulas used for PV system sizing and ROI calculations in the `calculatePVS
     }
     ```
 
-    **Explanation of `calculateBatterySizing()` function:**
-
-    1. **Input Retrieval:**
-        -  Gets input values from HTML elements using `document.getElementById()`.
-        -  `parseFloat()` converts string values from input fields to floating-point numbers for calculations.
-        - **Inputs include:**
-            - `E`: Daily energy consumption in watt-hours (Wh/day).
-            - `t`: Autonomy (number of days the system should operate without recharging).
-            - `V`: System voltage in volts (V).
-            - `top`: Weighted average operating time in hours per day.
-            - `to`: Autonomy period used for discharge rate calculation (days).
-            - `DODa`: Depth of discharge used for discharge rate calculation.
-            - `allowableDOD`: Allowable depth of discharge for the battery bank.
-            - `CTr`: Derating factor to account for temperature and discharge rate effects on battery capacity.
-            - `Bout`: Required battery output in amp-hours (Ah).
-
+   
     2. **Calculations:**
         - **`batteryOutput = (E * t) / V;`**: Calculates the required battery capacity in Amp-hours (Ah) based on daily energy consumption, autonomy, and system voltage. This is a simplified calculation for battery size.
         - **`dischargeRate = (top * to) / DODa;`**: Calculates the average discharge rate in hours. This calculation seems to be attempting to estimate a discharge time based on operating hours and autonomy, relative to a depth of discharge.  *(Note:  Review the formula's accuracy and purpose in your specific battery sizing context. It might need refinement based on the actual battery sizing methodology you intend to use).*
@@ -324,12 +207,6 @@ The formulas used for PV system sizing and ROI calculations in the `calculatePVS
 
 Once you are satisfied with your calculator in CodePen:
 
-* **Direct Export (Recommended):** CodePen has a direct "Export as ZIP" feature in the Pen menu (usually found by clicking the "Pen" title at the top). This is the easiest way to export your project.
-* **Manual Export (Alternative):**
-    1. **Create Files:** If direct export isn't working or you prefer manual control, create three files locally: `index.html`, `style.css`, and `script.js`.
-    2. **Copy Code:** Copy the HTML from the HTML section of CodePen and paste it into `index.html`. Do the same for CSS (into `style.css`) and JavaScript (into `script.js`). If you didn't use separate CSS or JS sections in CodePen, adjust accordingly (e.g., if CSS is inline in HTML, keep it there).
-    3. **Create ZIP Archive:** Compress `index.html`, `style.css`, and `script.js` into a ZIP archive (e.g., `pv_calculator.zip`).
-
 ## 3. Hosting on Tiny.host
 
 * **Go to Tiny.host:** Visit [https://tiiny.host](https://tiiny.host) (or your chosen free hosting provider).
@@ -348,10 +225,6 @@ Once you are satisfied with your calculator in CodePen:
 
 ## 5. Installing the APK on Android
 
-* **Download APK:** Download the generated APK file (usually named something like `your_app_name.apk` and located in an `android` folder if you get a ZIP from WebintoApp). It will be located inside the 'android' folder with the file name `your_app_name.apk`.
-* **Enable Unknown Sources:** On your Android device, you may need to enable "Install from unknown sources" in **Settings > Security** or **Settings > Apps > Special app access > Install unknown apps** (the exact path may vary depending on your Android version). **Be cautious** and only enable this if you trust the source of the APK. You may need to enable this option in your Android device's settings to install APKs from sources other than the Google Play Store.  (Be cautious when enabling this and only install APKs from trusted sources).
-* **Install APK:** Locate the downloaded APK file on your device using a file manager and tap on it to begin the installation process. Follow the on-screen prompts to install the app. Locate the downloaded APK file on your device and install it.
-
 ## Important Notes:
 
 * **JavaScript Calculations Accuracy:** Ensure the formulas used in your `calculatePVSystem()` (and `calculateBatterySizing()`, if applicable) function are correct and aligned with standard PV sizing and ROI calculation methodologies. Verify your calculations with reliable sources. The core of your app's functionality will be the JavaScript code that performs the PV sizing and ROI calculations.  You'll need to research and implement the appropriate formulas.  Consider using a JavaScript library for complex mathematical operations if needed.
@@ -364,42 +237,7 @@ Once you are satisfied with your calculator in CodePen:
 * **Web-based Deployment:** This basic guide focuses on APK conversion. Remember the application can also be used directly as a web application accessible via the Tiny.host URL.
 * **Advanced Features & Native Android Development:**  This guide provides a way to quickly wrap a web app into an APK. For more advanced features that require native device access (camera, sensors, offline capabilities, push notifications, better performance), learning native Android development (using Java or Kotlin) or cross-platform frameworks like React Native or Flutter would be necessary. This basic guide creates a simple web app wrapped in an APK.  For more advanced features (native device access, offline functionality), you'll need to explore native Android development.
 
-## Contributing
 
-**We warmly welcome contributions of all kinds!** Whether you are a seasoned developer, a solar energy expert, a UX/UI designer, or simply someone passionate about renewable energy, your input is valuable.
-
-**Here's how you can contribute:**
-
-* **Report Bugs:** If you encounter any issues or unexpected behavior, please describe the problem in detail.
-* **Suggest New Features:**  Have an idea for a new feature or improvement? Discuss your suggestion.
-* **Code Contributions:**  Want to contribute code?  Great! Please follow these steps:
-    1. **Fork the repository.**
-    2. **Create a new branch** for your feature or bug fix: `git checkout -b feature/your-feature-name` or `git checkout -b fix/bug-description`.
-    3. **Make your changes** and commit them with clear and concise commit messages.
-    4. **Test your changes** thoroughly.
-    5. **Submit a pull request** to the `main` branch with a detailed description of your changes.
-
-   * **Please review our [CONTRIBUTING.md](CONTRIBUTING.md) file for more detailed guidelines on coding style, testing, and pull request process.** *(Create this file and add more specific contribution instructions).*
-* **Design Improvements:**  If you have UX/UI design skills, we'd love your help in making the application more user-friendly and visually appealing.
-* **Spread the Word:**  Share this project with others who might find it useful or who might be interested in contributing!
-
-**We are particularly interested in contributions that focus on:**
-
-* **Improving accuracy and reliability of calculations.**
-* **Expanding data sources (e.g., weather APIs, panel databases).**
-* **Enhancing the user interface and user experience.**
-* **Internationalization and localization (supporting multiple languages and regions).**
-
-## Roadmap & Future Enhancements
-
-We have a vision for continuously improving this application.  Some of the planned future enhancements include:
-
-* **Web-based Deployment:**  Making the application accessible online for wider usage.
-* **Interactive Visualizations:**  Adding charts and graphs to visualize results and make them more insightful.
-* **Advanced Scenario Modeling:**  Including more sophisticated factors like shading, panel orientation optimization, and battery storage integration.
-* **Integration with Data APIs:**  Connecting to external APIs for real-time weather data, panel specifications, and electricity tariffs.
-* **Mobile Responsiveness:**  Ensuring the application works well on different screen sizes, including Apple devices.
-* **User Accounts & Saved Projects:**  Allowing users to save their projects and track their solar planning progress.
 
 This roadmap is flexible and will be shaped by community feedback and contributions.
 
