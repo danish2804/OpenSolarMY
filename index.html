@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenSolarMY | PV Calculator </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">OpenSolar<span>MY</span></a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#contribute">Contribute</a></li>
+                <li><a href="#guide">Guide</a></li>
+                <li><a href="#calculator" class="btn btn-nav">Calculator</a></li>
+            </ul>
+            <button class="menu-toggle" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="container">
+            <h1>An Open Source PV &amp; Battery Sizing Calculator</h1>
+            <p>Precise, user-friendly, and community-driven tools to power your solar journey in Malaysia.</p>
+        </section>
+        
+        <section id="about" class="container">
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Our Objectives</h3>
+                    <p><span class="highlight">✓ PV Sizing Accuracy:</span> Precise estimation based on your needs.</p>
+                    <p><span class="highlight">✓ User-Friendly Tool:</span> Intuitive PV sizing and ROI dashboard.</p>
+                    <p><span class="highlight">✓ Open-Source:</span> Promoting transparency and collaboration.</p>
+                </div>
+                <div class="card">
+                    <h3>Advantages in Malaysia</h3>
+                    <p><span class="highlight">💲 Reduce Bills:</span> Sell excess energy back to the grid with FiT schemes.</p>
+                    <p><span class="highlight">🍃 Go Green:</span> Drastically cut your carbon footprint compared to coal power.</p>
+                    <p><span class="highlight">⛅ Prime Location:</span> Malaysia's 4-5 Peak Sun Hours are perfect for solar energy.</p>
+                </div>
+                <div id="contribute" class="card">
+                    <h3>Contribute To Our Project 🤝</h3>
+                    <p>Collaborate with us on our open-source platform on GitHub.</p>
+                    <p><span class="highlight">Code, Data, Design:</span> Help us improve the calculator, add local data, or enhance the user experience.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="calculator" class="container">
+            <h2>PV System & ROI Calculator</h2>
+            <form id="calculator-form">
+                
+                <!-- PV System Sizing -->
+                <fieldset>
+                    <legend>Solar Panel Characteristics</legend>
+                    <div class="form-group">
+                        <label for="Pmp">Planned Solar Panel Power (W) <span class="tooltip" data-tip="Power rating of a single solar panel you plan to use.">❔</span></label>
+                        <input type="number" id="Pmp" value="300" min="200" max="550" step="50">
+                    </div>
+                    <div class="form-group">
+                        <label for="nm">Number of Modules <span class="tooltip" data-tip="Total number of solar panels in your system.">❔</span></label>
+                        <input type="number" value="4" min="1" id="nm" placeholder="e.g., 12" required>
+                    </div>
+                     <div class="form-group">
+                        <label for="PSH">Peak Sun Hours (hours/day) <span class="tooltip" data-tip="Average hours of strong sunlight. Malaysia is typically 4-5 hours.">❔</span></label>
+                        <input type="number" value="4" id="PSH" min="1" step="0.1" placeholder="e.g., 4.5" required>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>System Efficiency & Losses</legend>
+                    <div class="form-group">
+                        <label for="Pg">Manufacturer Power Guaranteed (%) <span class="tooltip" data-tip="Usually 90%. Found in the panel's datasheet.">❔</span></label>
+                        <input type="number" id="Pg" value="90" min="80" max="100" step="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="Avetemp">Array Average Operating Temp (°C) <span class="tooltip" data-tip="Usually 35-55°C. Found in the panel's datasheet.">❔</span></label>
+                        <input type="number" id="Avetemp" value="55" min="15" step="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="STC">Standard Test Condition (STC) Temp (°C) <span class="tooltip" data-tip="Industry standard temperature for testing panels.">❔</span></label>
+                        <input type="number" id="STC" value="25" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="Ctemp">Temperature Coefficient (%/°C) <span class="tooltip" data-tip="How much power is lost for every degree above STC. Usually a negative value like -0.4%.">❔</span></label>
+                        <input type="number" step="0.01" id="Ctemp" value="0.4" min="0.1" max="0.7">
+                    </div>
+                    <div class="form-group">
+                        <label for="wiringLoss">Wiring Loss (%) <span class="tooltip" data-tip="Energy lost in the wiring. Typically 2-3%.">❔</span></label>
+                        <input type="number" id="wiringLoss" value="3" min="1" max="10" step="0.5">
+                    </div>
+                    <div class="form-group">
+                        <label for="InvEff">Inverter Efficiency (%) <span class="tooltip" data-tip="How efficiently the inverter converts DC to AC power. Usually 90-98%.">❔</span></label>
+                        <input type="number" id="InvEff" value="90" min="85" max="99" step="1">
+                    </div>
+                     <div class="form-group">
+                        <label for="InvMPPT">MPPT Efficiency (%) <span class="tooltip" data-tip="Maximum Power Point Tracking efficiency. Usually near 100%.">❔</span></label>
+                        <input type="number" id="InvMPPT" value="100" min="90" max="100" step="1">
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Costs & Financials</legend>
+                     <div class="form-group">
+                        <label for="panelCost">Cost per Panel (RM) <span class="tooltip" data-tip="The price for a single solar panel.">❔</span></label>
+                        <input type="number" value="550" id="panelCost" min="0" placeholder="e.g., 600" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inverterCost">Inverter Cost (RM) <span class="tooltip" data-tip="The total price for the inverter.">❔</span></label>
+                        <input type="number" value="500" id="inverterCost" min="0" placeholder="e.g., 4000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="laborRate">Installation Price (RM) <span class="tooltip" data-tip="Total cost for labor and mounting hardware.">❔</span></label>
+                        <input type="number" value="3410" id="laborRate" min="0" placeholder="e.g., 5000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="annualCleaning">Annual Maintenance (RM) <span class="tooltip" data-tip="Estimated yearly cost for cleaning and check-ups.">❔</span></label>
+                        <input type="number" value="350" id="annualCleaning" min="0" placeholder="e.g., 200" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="region">Region <span class="tooltip" data-tip="Select your region for accurate electricity tariff calculations.">❔</span></label>
+                        <select id="region" required>
+                            <option value="">Select your region</option>
+                            <option value="peninsular">Peninsular Malaysia (TNB)</option>
+                            <option value="sabah">Sabah (Sabah Energy)</option>
+                        </select>
+                    </div>
+                     <div class="form-group">
+                        <label for="monthlyBill">Average Monthly Bill (RM) <span class="tooltip" data-tip="Your average electricity bill. This is key for ROI calculation.">❔</span></label>
+                        <input type="number" value="239.99" id="monthlyBill" placeholder="e.g., 350" required>
+                    </div>
+                </fieldset>
+
+                <button type="button" class="btn btn-calculate" onclick="calculatePVSystem()">Calculate PV System & ROI</button>
+                <div id="result" class="output-box"></div>
+
+                <!-- Battery Sizing -->
+                <fieldset>
+                    <legend>Battery Sizing (Optional)</legend>
+                     <div class="form-group">
+                        <label for="dailyEnergy">Daily Energy Consumption (Wh/day) <span class="tooltip" data-tip="Total energy your home uses in a day.">❔</span></label>
+                        <input type="number" id="dailyEnergy" value="1800" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="Autonomy">Autonomy (days) <span class="tooltip" data-tip="How many days the battery should last without sun (e.g., cloudy days).">❔</span></label>
+                        <input type="number" id="Autonomy" value="2" min="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="systemVoltage">System Voltage (V) <span class="tooltip" data-tip="Your system's operating voltage, typically 12V, 24V, or 48V.">❔</span></label>
+                        <input type="number" id="systemVoltage" value="24" min="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="allowableDOD">Allowable Depth of Discharge (DOD) <span class="tooltip" data-tip="How much of the battery can be safely used. 0.8 = 80%.">❔</span></label>
+                        <input type="number" id="allowableDOD" value="0.8" step="0.01" min="0" max="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="deratingFactor">Derating Factor <span class="tooltip" data-tip="Accounts for battery performance loss due to temperature. Usually 0.8-1.0.">❔</span></label>
+                        <input type="number" id="deratingFactor" value="0.9" step="0.01" min="0" max="1">
+                    </div>
+                </fieldset>
+                
+                <button type="button" class="btn btn-calculate" onclick="calculateBatterySizing()">Calculate Battery Sizing</button>
+                <div id="batteryResult" class="output-box"></div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p class="container">OpenSolarMY - Power to the People. Literally.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
